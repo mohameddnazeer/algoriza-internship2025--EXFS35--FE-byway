@@ -6,7 +6,7 @@ A modern  web application built with React, TypeScript, and Vite. This client ap
 ## 📄 License to Login
 
 login by admin role => admin@byway.com for mail and Admin123! for password
-login by user role => user1@byway.com for mail and User@123 for password
+login by user role => mohamed55nazeer55@gmail.com for mail and Nazeer@123 for password
 
 
 ## 🚀 Features
