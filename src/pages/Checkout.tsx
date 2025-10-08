@@ -100,21 +100,34 @@ export default function Checkout() {
 
   const handleInputChange = (field: string, value: string) => {
     if (field.includes('.')) {
-      const [parent, child] = field.split('.');
-      setFormData(prev => ({
-        ...prev,
-        [parent]: {
-          ...prev[parent as keyof PaymentForm],
-          [child]: value
+      const [parent, child] = field.split('.') as ['billingAddress', keyof PaymentForm['billingAddress']];
+      if (parent === 'billingAddress') {
+        setFormData(prev => ({
+          ...prev,
+          billingAddress: {
+            ...prev.billingAddress,
+            [child]: value,
+          },
+        }));
+        // Clear nested error when user starts typing
+        if (errors.billingAddress && (errors.billingAddress as any)[child]) {
+          setErrors(prev => ({
+            ...prev,
+            billingAddress: {
+              ...prev.billingAddress,
+              [child]: undefined as any,
+            } as any,
+          }));
         }
-      }));
+        return;
+      }
     } else {
       setFormData(prev => ({ ...prev, [field]: value }));
-    }
-
-    // Clear error when user starts typing
-    if (errors[field as keyof typeof errors]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }));
+      // Clear error when user starts typing
+      if (errors[field as keyof typeof errors]) {
+        setErrors(prev => ({ ...prev, [field]: undefined }));
+      }
+      return;
     }
   };
 

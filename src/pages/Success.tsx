@@ -32,7 +32,7 @@ export default function Success() {
         </h1>
         
         <p className="text-xl text-gray-600 mb-8">
-          Thank you for your purchase, {user?.name || 'valued customer'}!
+          Thank you for your purchase, {user ? `${user.firstName} ${user.lastName}`.trim() : 'valued customer'}!
         </p>
 
         <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">

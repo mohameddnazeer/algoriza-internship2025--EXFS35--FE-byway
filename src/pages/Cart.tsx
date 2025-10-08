@@ -84,11 +84,11 @@ export default function Cart() {
                     <div className="flex items-center mb-3">
                       <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-2">
                         <span className="text-white text-xs font-bold">
-                          {item.instructorName?.charAt(0) || 'I'}
+                          {item.instructor?.charAt(0) || 'I'}
                         </span>
                       </div>
                       <p className="text-sm text-gray-600 font-medium">
-                        By {item.instructorName}
+                        By {item.instructor}
                       </p>
                     </div>
                     <div className="flex items-center justify-between">
